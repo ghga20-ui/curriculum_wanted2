@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>개설 희망 과목 안내 — 효자고등학교</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Noto Sans KR', sans-serif; background: #f0f2f5; color: #111; -webkit-font-smoothing: antialiased; }
+
+  /* 헤더 */
+  .header { background: linear-gradient(135deg, #1971c2, #339af0); padding: 24px 20px 28px; color: white; }
+  .header .school { font-size: 12px; opacity: 0.85; margin-bottom: 6px; }
+  .header h1 { font-size: 22px; font-weight: 800; line-height: 1.3; margin-bottom: 10px; }
+  .header p { font-size: 13px; opacity: 0.9; line-height: 1.7; }
+
+  /* 폼 버튼 배너 */
+  .form-banner { background: #fff; padding: 14px 20px; border-bottom: 1px solid #e9ecef; }
+  .form-btn { display: flex; align-items: center; justify-content: center; gap: 8px; background: #1971c2; color: white; padding: 13px; border-radius: 12px; font-size: 14px; font-weight: 700; text-decoration: none; }
+  .form-btn:active { background: #1562aa; }
+  .form-hint { font-size: 11px; color: #868e96; text-align: center; margin-top: 7px; }
+
+  /* 범례 */
+  .legend { background: #fff; padding: 10px 20px; border-bottom: 1px solid #f0f0f0; display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+  .legend span.label { font-size: 11px; color: #666; margin-right: 2px; }
+
+  /* 메인 컨텐츠 */
+  .content { padding: 14px 16px 100px; }
+
+  /* 아코디언 */
+  .accordion { background: white; border-radius: 12px; margin-bottom: 10px; box-shadow: 0 1px 4px rgba(0,0,0,0.07); overflow: hidden; }
+  .accordion-header { display: flex; justify-content: space-between; align-items: center; padding: 14px 16px; cursor: pointer; user-select: none; -webkit-tap-highlight-color: transparent; }
+  .accordion-header:active { background: #f8f9fa; }
+  .accordion-header.open { background: #e8f4f8; }
+  .acc-left { display: flex; align-items: center; gap: 9px; }
+  .acc-icon { font-size: 18px; }
+  .acc-title { font-weight: 700; font-size: 15px; color: #000; }
+  .acc-count { background: #dee2e6; color: #495057; font-size: 11px; padding: 2px 7px; border-radius: 10px; }
+  .acc-arrow { font-size: 11px; color: #adb5bd; transition: transform 0.2s; }
+  .accordion-header.open .acc-arrow { transform: rotate(180deg); }
+
+  .accordion-body { display: none; padding: 0 16px 8px; }
+  .accordion-body.open { display: block; }
+
+  /* 과목 아이템 */
+  .subject-item { padding: 10px 0; border-bottom: 1px solid #f5f5f5; }
+  .subject-item:last-child { border-bottom: none; }
+  .subject-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 4px; gap: 8px; }
+  .subject-name { font-weight: 600; font-size: 14px; color: #000; line-height: 1.4; flex: 1; }
+  .tags { display: flex; gap: 4px; flex-shrink: 0; flex-wrap: wrap; justify-content: flex-end; }
+  .subject-desc { font-size: 12px; color: #555; line-height: 1.6; }
+  .subject-desc.none { color: #bbb; font-style: italic; }
+
+  /* 태그 스타일 */
+  .tag { font-size: 10px; padding: 2px 7px; border-radius: 10px; white-space: nowrap; font-weight: 500; }
+  .tag-진로 { background: #e8f5e9; color: #2e7d32; }
+  .tag-융합 { background: #fff3e0; color: #e65100; }
+  .tag-일반 { background: #e8eaf6; color: #283593; }
+  .tag-보통 { background: #e3f2fd; color: #1565c0; }
+  .tag-특목 { background: #f3e5f5; color: #6a1b9a; }
+  .tag-고시외 { background: #fce4ec; color: #b71c1c; }
+
+  /* 하단 고정 버튼 */
+  .sticky-btn { position: fixed; bottom: 0; left: 0; right: 0; background: #1971c2; padding: 14px 20px; z-index: 100; }
+  .sticky-btn a { display: flex; align-items: center; justify-content: center; gap: 8px; color: white; text-decoration: none; font-size: 15px; font-weight: 700; }
+  .sticky-btn a:active { opacity: 0.85; }
+
+  @media (min-width: 600px) {
+    body { max-width: 500px; margin: 0 auto; }
+    .sticky-btn { max-width: 500px; margin: 0 auto; left: 50%; transform: translateX(-50%); right: auto; width: 100%; }
+  }
+</style>
+</head>
+<body>
+
+<!-- 헤더 -->
+<div class="header">
+  <div class="school">효자고등학교 2027학년도 교육과정</div>
+  <h1>개설 희망 과목 목록</h1>
+  <p>현재 우리 학교에 개설되지 않은 과목입니다.<br>아래 목록을 참고하여 희망 과목을 신청해 주세요.</p>
+</div>
+
+<!-- 폼 버튼 -->
+<div class="form-banner">
+  <a class="form-btn" href="https://forms.gle/uzXQYbsgyXhkCUG7A" target="_blank">
+    <span>📝</span> 희망 과목 신청하기
+  </a>
+  <div class="form-hint">목록을 확인한 후 위 버튼을 눌러 신청해 주세요</div>
+</div>
+
+<!-- 범례 -->
+<div class="legend">
+  <span class="label">구분:</span>
+  <span class="tag tag-보통">보통</span>
+  <span class="tag tag-특목">특목</span>
+  <span class="tag tag-고시외">고시외</span>
+  <span style="margin-left:4px" class="label">선택:</span>
+  <span class="tag tag-진로">진로</span>
+  <span class="tag tag-융합">융합</span>
+  <span class="tag tag-일반">일반</span>
+</div>
+
+<!-- 과목 목록 -->
+<div class="content" id="subjectList"></div>
+
+<!-- 하단 고정 버튼 -->
+<div class="sticky-btn">
+  <a href="https://forms.gle/uzXQYbsgyXhkCUG7A" target="_blank">
+    <span>📝</span> 희망 과목 신청하기
+  </a>
+</div>
+
+<script>
+const SECTIONS = [
+  {
+    title: "국어", icon: "📖",
+    items: [
+      { name:"직무의사소통", type:"진로", src:"보통", desc:"직업 현장의 보고·발표·협업 등 실무 의사소통 능력을 기릅니다." },
+      { name:"독서토론과글쓰기", type:"융합", src:"보통", desc:"다양한 글을 읽고 토론하며 논리적 글쓰기 역량을 키웁니다." },
+      { name:"독서와 의사소통", src:"고시외" },
+    ]
+  },
+  {
+    title: "수학", icon: "🔢",
+    items: [
+      { name:"직무수학", type:"진로", src:"보통", desc:"직업 현장에서 활용되는 실용적인 수학 문제 해결 능력을 기릅니다." },
+      { name:"실용통계", type:"융합", src:"보통", desc:"실생활 자료를 수집·분석·해석하는 통계적 사고력을 기릅니다." },
+      { name:"수학과제탐구", type:"융합", src:"보통", desc:"수학적 주제를 스스로 설정하고 탐구하는 과정을 경험합니다." },
+      { name:"전문수학", type:"진로", src:"특목", desc:"이공계 진학을 위한 수학적 원리와 개념을 심화 학습합니다." },
+      { name:"이산수학", type:"진로", src:"특목", desc:"알고리즘·논리·조합 등 연속적이지 않은 수학 구조를 다룹니다." },
+      { name:"고급기하", type:"진로", src:"특목", desc:"공간 도형·벡터·좌표기하 등 기하학의 심화 내용을 학습합니다." },
+      { name:"고급대수", type:"진로", src:"특목", desc:"행렬·군론·환론 등 대수학의 고급 이론을 학습합니다." },
+      { name:"고급미적분", type:"진로", src:"특목", desc:"다변수 미적분 등 대학 수준의 미적분을 선행 학습합니다." },
+      { name:"디딤수학", src:"고시외" },
+      { name:"미적분학 Ⅱ", src:"고시외" },
+      { name:"심화 미분적분학 Ⅰ", src:"고시외" },
+      { name:"심화 미분적분학 Ⅱ", src:"고시외" },
+    ]
+  },
+  {
+    title: "영어", icon: "🌍",
+    items: [
+      { name:"영어발표와토론", type:"진로", src:"보통", desc:"영어로 발표하고 토론하는 고급 말하기 능력을 심화 학습합니다." },
+      { name:"직무영어", type:"진로", src:"보통", desc:"비즈니스 환경에서 필요한 영어 의사소통 능력을 기릅니다." },
+      { name:"실생활영어회화", type:"융합", src:"보통", desc:"다양한 실생활 상황에서 영어로 의사소통하는 능력을 기릅니다." },
+      { name:"미디어영어", type:"융합", src:"보통", desc:"미디어 속 영어 콘텐츠를 이해하고 창의적으로 활용합니다." },
+      { name:"심화영어회화Ⅰ", type:"진로", src:"특목", desc:"외국어 계열 전공자를 위한 심화 영어 회화 과목입니다." },
+      { name:"심화영어회화Ⅱ", type:"진로", src:"특목", desc:"외국어 계열 전공자를 위한 심화 영어 회화 과목입니다." },
+      { name:"심화영어Ⅰ", type:"진로", src:"특목", desc:"외국어 계열 전공자를 위한 종합 심화 영어 과목입니다." },
+      { name:"심화영어Ⅱ", type:"진로", src:"특목", desc:"외국어 계열 전공자를 위한 종합 심화 영어 과목입니다." },
+      { name:"심화영어독해Ⅰ", type:"진로", src:"특목", desc:"외국어 계열 전공자를 위한 심화 영어 독해 과목입니다." },
+      { name:"심화영어독해Ⅱ", type:"진로", src:"특목", desc:"외국어 계열 전공자를 위한 심화 영어 독해 과목입니다." },
+      { name:"심화영어작문Ⅰ", type:"진로", src:"특목", desc:"외국어 계열 전공자를 위한 심화 영어 작문 과목입니다." },
+      { name:"심화영어작문Ⅱ", type:"진로", src:"특목", desc:"외국어 계열 전공자를 위한 심화 영어 작문 과목입니다." },
+      { name:"영어에세이쓰기", src:"고시외" },
+    ]
+  },
+  {
+    title: "사회 (역사/도덕 포함)", icon: "🗺️",
+    items: [
+      { name:"국제관계의이해", type:"진로", src:"보통", desc:"국제 사회의 주요 이슈와 국가 간 관계의 원리를 탐구합니다." },
+      { name:"국제정치", type:"진로", src:"특목", desc:"국제 정치 현상의 원리와 국제관계의 변화를 탐구합니다." },
+      { name:"국제경제", type:"진로", src:"특목", desc:"국제 무역·환율·금융 등 국제 경제 현상을 학습합니다." },
+      { name:"국제법", type:"진로", src:"특목", desc:"국가 간 관계를 규율하는 국제법의 원칙과 사례를 학습합니다." },
+      { name:"지역이해", type:"진로", src:"특목", desc:"세계 각 지역의 문화·경제·정치적 특성을 비교·탐구합니다." },
+      { name:"한국사회의이해", type:"진로", src:"특목", desc:"한국 사회의 구조·변동·쟁점을 사회학적 시각으로 분석합니다." },
+      { name:"비교문화", type:"진로", src:"특목", desc:"세계 여러 문화의 특성을 비교·분석하며 문화 다양성을 이해합니다." },
+      { name:"세계문제와미래사회", type:"진로", src:"특목", desc:"환경·빈곤·인권 등 세계적 문제와 지속 가능한 미래를 탐구합니다." },
+      { name:"국제관계와국제기구", type:"진로", src:"특목", desc:"UN 등 국제기구의 역할과 국제 협력의 원리를 학습합니다." },
+      { name:"사회탐구방법", type:"진로", src:"특목", desc:"사회과학적 연구 방법과 자료 수집·분석 방법을 익힙니다." },
+      { name:"사회과제연구", type:"진로", src:"특목", desc:"사회적 이슈를 주제로 탐구 과제를 직접 설계하고 수행합니다." },
+      { name:"비판적 사고와 철학", src:"고시외" },
+      { name:"세계 역사와 문화", src:"고시외" },
+      { name:"거시경제학 탐구", src:"고시외" },
+      { name:"미시경제학 탐구", src:"고시외" },
+      { name:"경제학 개론 탐구", src:"고시외" },
+      { name:"사회학 탐구", src:"고시외" },
+      { name:"통계로 바라보는 국제문제", src:"고시외" },
+      { name:"국제기구와 과학 기술 협력", src:"고시외" },
+      { name:"4차 산업혁명과 윤리 문제 탐구", src:"고시외" },
+      { name:"공간 정보와 공간 분석", src:"고시외" },
+      { name:"동양근대사 탐구", src:"고시외" },
+      { name:"역사학으로 국제사회 읽기", src:"고시외" },
+      { name:"윤리학 연습", src:"고시외" },
+      { name:"현대정치철학의이해", src:"고시외" },
+      { name:"문화로 보는 한국사", src:"고시외" },
+    ]
+  },
+  {
+    title: "과학", icon: "🔬",
+    items: [
+      { name:"과학의역사와문화", type:"융합", src:"보통", desc:"과학과 사회·문화의 상호작용을 역사적 사례를 통해 탐구합니다." },
+      { name:"기후변화와환경생태", type:"융합", src:"보통", desc:"기후변화의 원인·영향과 환경 생태계의 관계를 탐구합니다." },
+      { name:"고급물리학", type:"진로", src:"특목", desc:"역학·전자기학·현대물리학을 대학 수준으로 심화 학습합니다." },
+      { name:"고급화학", type:"진로", src:"특목", desc:"유기·무기·분석 화학을 대학 수준으로 심화 학습합니다." },
+      { name:"고급생명과학", type:"진로", src:"특목", desc:"분자생물학·유전체학 등을 대학 수준으로 심화 학습합니다." },
+      { name:"고급지구과학", type:"진로", src:"특목", desc:"지구·대기·해양·천문 분야를 대학 수준으로 심화 학습합니다." },
+      { name:"과학과제연구", type:"진로", src:"특목", desc:"과학적 방법으로 탐구 주제를 설정하고 연구를 수행합니다." },
+      { name:"물리학실험", type:"융합", src:"특목", desc:"물리학 이론을 실험을 통해 직접 탐구하고 검증합니다." },
+      { name:"화학실험", type:"융합", src:"특목", desc:"화학 이론을 실험을 통해 직접 탐구하고 검증합니다." },
+      { name:"생명과학실험", type:"융합", src:"특목", desc:"생명과학 이론을 실험을 통해 직접 탐구하고 검증합니다." },
+      { name:"지구과학실험", type:"융합", src:"특목", desc:"지구과학 이론을 관측·실험을 통해 탐구합니다." },
+      { name:"고급 지구과학 실험", src:"고시외" },
+      { name:"심화 물리학", src:"고시외" },
+      { name:"심화 생명과학 탐구", src:"고시외" },
+      { name:"화학심화탐구", src:"고시외" },
+      { name:"인공지능 화학", src:"고시외" },
+      { name:"화학공학개론", src:"고시외" },
+      { name:"화학공학의 기초와 응용", src:"고시외" },
+      { name:"인공지능 기반 생물정보학 기초와 활용", src:"고시외" },
+    ]
+  },
+  {
+    title: "체육", icon: "🏃",
+    items: [
+      { name:"스포츠개론", type:"진로", src:"특목", desc:"스포츠의 개념·역사·과학적 원리를 종합적으로 학습합니다." },
+      { name:"기초체육전공실기", type:"진로", src:"특목", desc:"체육 전공자로서 기초적인 운동 기능을 체계적으로 익힙니다." },
+      { name:"심화체육전공실기", type:"진로", src:"특목", desc:"체육 전공자로서 심화된 운동 기능과 경기 기술을 훈련합니다." },
+      { name:"고급체육전공실기", type:"진로", src:"특목", desc:"체육 전공자로서 전문적인 경기력 향상을 목표로 훈련합니다." },
+      { name:"스포츠경기체력", type:"진로", src:"특목", desc:"경기 종목에 필요한 전문 체력을 과학적으로 향상시킵니다." },
+      { name:"스포츠경기기술", type:"진로", src:"특목", desc:"특정 스포츠 종목의 전문 기술을 체계적으로 학습합니다." },
+      { name:"스포츠경기분석", type:"진로", src:"특목", desc:"스포츠 경기의 전술·전략을 데이터 기반으로 분석합니다." },
+      { name:"스포츠교육", type:"융합", src:"특목", desc:"스포츠 지도의 원리와 방법, 스포츠 교육 현장을 탐구합니다." },
+      { name:"스포츠생리의학", type:"융합", src:"특목", desc:"운동 중 신체 반응과 스포츠 의학의 기본 원리를 학습합니다." },
+      { name:"스포츠행정및경영", type:"융합", src:"특목", desc:"스포츠 조직의 운영·행정·마케팅을 학습합니다." },
+    ]
+  },
+  {
+    title: "예술", icon: "🎨",
+    items: [
+      { name:"음악전공실기", type:"진로", src:"특목", desc:"전공 악기 또는 성악을 집중적으로 훈련하는 실기 과목입니다." },
+      { name:"음악과문화", type:"융합", src:"특목", desc:"음악과 사회·문화의 관계를 탐구하며 음악적 소양을 키웁니다." },
+      { name:"미술이론", type:"진로", src:"특목", desc:"미술의 개념·역사·비평적 방법을 체계적으로 이해합니다." },
+      { name:"미술사", type:"진로", src:"특목", desc:"동서양 미술의 역사적 흐름과 주요 작품·작가를 탐구합니다." },
+      { name:"미술전공실기", type:"진로", src:"특목", desc:"회화·조각 등 전공 분야의 표현 기술을 심화 훈련합니다." },
+      { name:"문예창작의이해", type:"진로", src:"특목", desc:"문학 창작의 기초 원리와 다양한 장르를 이해합니다." },
+      { name:"문장론", type:"진로", src:"특목", desc:"문장의 구조와 표현 방식을 심화 학습하여 글쓰기 능력을 키웁니다." },
+      { name:"문학감상과비평", type:"진로", src:"특목", desc:"문학 작품을 비평적 시각으로 분석하고 감상하는 능력을 기릅니다." },
+      { name:"시창작", type:"진로", src:"특목", desc:"다양한 시적 표현 기법을 익히고 직접 시를 창작합니다." },
+      { name:"소설창작", type:"진로", src:"특목", desc:"소설의 서사 구조와 인물·배경 설정 등을 익히며 창작합니다." },
+      { name:"극창작", type:"진로", src:"특목", desc:"희곡과 시나리오의 원리를 이해하고 직접 극 작품을 창작합니다." },
+      { name:"문학과매체", type:"융합", src:"특목", desc:"문학 작품이 다양한 매체로 변환되는 과정을 탐구합니다." },
+    ]
+  },
+  {
+    title: "기술·가정 / 정보", icon: "💻",
+    items: [
+      { name:"생활과학탐구", type:"진로", src:"보통", desc:"생활 속 과학 원리를 탐구하고 실생활 문제를 해결합니다." },
+      { name:"데이터과학", type:"진로", src:"보통", desc:"데이터 수집·분석·시각화를 통해 데이터 리터러시를 기릅니다." },
+      { name:"생애설계와자립", type:"융합", src:"보통", desc:"성인기를 앞두고 자립적인 삶을 설계하고 실천하는 능력을 기릅니다." },
+      { name:"소프트웨어와생활", type:"융합", src:"보통", desc:"소프트웨어를 일상·학문 분야에 융합·활용하는 역량을 기릅니다." },
+    ]
+  },
+  {
+    title: "교양", icon: "📚",
+    items: [
+      { name:"진로와직업", type:"일반", src:"보통", desc:"진로 목표를 설정하고 구체적인 진로 정보를 활용해 설계합니다." },
+      { name:"인간과철학", type:"진로", src:"보통", desc:"동서양 철학적 사유를 통해 삶의 의미와 인간에 대해 탐구합니다." },
+      { name:"논리와사고", type:"진로", src:"보통", desc:"올바른 추론과 논증의 기준을 이해하고 논리적 사고력을 기릅니다." },
+      { name:"보건", type:"진로", src:"보통", desc:"몸과 마음을 이해하고 개인·공동체의 건강 증진을 실천합니다." },
+      { name:"인간과경제활동", type:"융합", src:"보통", desc:"빠르게 변화하는 경제 환경을 이해하고 합리적 경제 판단력을 기릅니다." },
+      { name:"프로젝트 기본", src:"고시외" },
+      { name:"비판적 질문과 창의적 해결", src:"고시외" },
+      { name:"고전으로 만나는 학문의 처음", src:"고시외" },
+      { name:"토론과 논술 활용", src:"고시외" },
+      { name:"미래주제연구Ⅰ", src:"고시외" },
+      { name:"미래주제연구Ⅱ", src:"고시외" },
+      { name:"미래주제연구Ⅲ", src:"고시외" },
+      { name:"세계시민", src:"고시외" },
+      { name:"국제탐구프로젝트", src:"고시외" },
+      { name:"인공지능 윤리", src:"고시외" },
+      { name:"공존의 윤리와 시민실천", src:"고시외" },
+      { name:"주제탐구 프로젝트 Ⅰ", src:"고시외" },
+      { name:"주제탐구 프로젝트 Ⅱ", src:"고시외" },
+    ]
+  },
+];
+
+function buildAccordion() {
+  const container = document.getElementById('subjectList');
+  SECTIONS.forEach((section, idx) => {
+    const acc = document.createElement('div');
+    acc.className = 'accordion';
+
+    const header = document.createElement('div');
+    header.className = 'accordion-header';
+    header.innerHTML = `
+      <div class="acc-left">
+        <span class="acc-icon">${section.icon}</span>
+        <span class="acc-title">${section.title}</span>
+        <span class="acc-count">${section.items.length}</span>
+      </div>
+      <span class="acc-arrow">▼</span>
+    `;
+
+    const body = document.createElement('div');
+    body.className = 'accordion-body';
+
+    section.items.forEach(item => {
+      const div = document.createElement('div');
+      div.className = 'subject-item';
+
+      let tagsHtml = '';
+      if (item.type) tagsHtml += `<span class="tag tag-${item.type}">${item.type}</span>`;
+      tagsHtml += `<span class="tag tag-${item.src}">${item.src}</span>`;
+
+      const descHtml = item.src === '고시외'
+        ? `<div class="subject-desc none">— (고시외 과목)</div>`
+        : (item.desc ? `<div class="subject-desc">${item.desc}</div>` : '');
+
+      div.innerHTML = `
+        <div class="subject-top">
+          <span class="subject-name">${item.name}</span>
+          <div class="tags">${tagsHtml}</div>
+        </div>
+        ${descHtml}
+      `;
+      body.appendChild(div);
+    });
+
+    header.addEventListener('click', () => {
+      const isOpen = header.classList.contains('open');
+      header.classList.toggle('open', !isOpen);
+      body.classList.toggle('open', !isOpen);
+    });
+
+    acc.appendChild(header);
+    acc.appendChild(body);
+    container.appendChild(acc);
+  });
+}
+
+buildAccordion();
+</script>
+</body>
+</html>
